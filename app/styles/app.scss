@@ -36,6 +36,9 @@ body{
 }
 
 #list-pane {
+   display:flex;
+   flex-flow: column nowrap;
+   justify-content: flex-end;
    overflow:scroll;
    flex: 1 0 100px;
    padding-bottom: 1px;
