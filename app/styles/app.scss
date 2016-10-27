@@ -1,0 +1,77 @@
+
+// Bootstrap Variables
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body{
+   background-color: #FF851B;
+}
+
+#app{
+   margin: 20px;
+   position:relative;
+}
+
+#chat{
+   position:fixed;
+   top:20px;
+   bottom:-5px;
+   left:50px;
+   right: 50px;
+   display:flex;
+   flex-flow: column nowrap;
+}
+
+#list-pane {
+   overflow:scroll;
+   flex: 1 0 100px;
+   padding-bottom: 1px;
+   margin-bottom: 10px;
+}
+
+.panel{
+
+   margin-bottom: 8px;
+
+   padding: 10px 12px 10px 8px;
+   vertical-align: middle;
+
+
+
+   .panel-body{
+
+      h4{
+         flex: 0 0 100px;
+      }
+
+      span{
+         flex: 1 0 100px;
+      }
+
+      .badge{
+         flex: 0 0 100px;
+         margin-left: 10px;
+
+      }
+
+
+      padding: 0 8px;
+      display:flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+   }
+}
