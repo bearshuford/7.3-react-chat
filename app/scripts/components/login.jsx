@@ -1,26 +1,25 @@
 require('react-bootstrap');
 var $ = require('jquery');
 var React = require('react');
+var FontAwesome = require('react-fontawesome');
 
-var Button = require('react-bootstrap').Button;
-var Form = require('react-bootstrap').Form;
-var FormGroup = require('react-bootstrap').FormGroup;
-var FormControl = require('react-bootstrap').FormControl;
-var InputGroup = require('react-bootstrap').InputGroup;
-var ControlLabel = require('react-bootstrap').ControlLabel;
-var HelpBlock = require('react-bootstrap').HelpBlock;
-var Glyphicon = require('react-bootstrap').Glyphicon;
-var Row = require('react-bootstrap').Row;
-var Col = require('react-bootstrap').Col;
+var Button        = require('react-bootstrap').Button;
+var Form          = require('react-bootstrap').Form;
+var FormGroup     = require('react-bootstrap').FormGroup;
+var FormControl   = require('react-bootstrap').FormControl;
+var InputGroup    = require('react-bootstrap').InputGroup;
+var ControlLabel  = require('react-bootstrap').ControlLabel;
+var HelpBlock     = require('react-bootstrap').HelpBlock;
+var Row           = require('react-bootstrap').Row;
+var Col           = require('react-bootstrap').Col;
 
-var User = require('./../models/User').User;
+var User          = require('./../models/User').User;
+var HeaderElement = require('./header.jsx').HeaderElement;
 
 
 var LoginForm = React.createClass({
   getInitialState: function() {
-    return {
-      username: ''
-    };
+    return {username: ''};
   },
 
   handleChange: function(e) {
@@ -52,7 +51,7 @@ var LoginForm = React.createClass({
              />
              <InputGroup.Button>
                 <Button type="submit" bsStyle="primary">
-                  <Glyphicon glyph="log-in"/>
+                  <FontAwesome name="sign-in"/>
                 </Button>
              </InputGroup.Button>
           </InputGroup>
@@ -68,11 +67,14 @@ var LoginForm = React.createClass({
 var LoginComponent = React.createClass({
    render: function(){
       return (
+      <div id="login">
+         <HeaderElement/>
          <Row>
             <Col sm={6} smOffset={3}>
                <LoginForm router={this.props.router}/>
             </Col>
          </Row>
+      </div>
       );
    }
 });

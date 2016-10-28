@@ -10,7 +10,7 @@ var Message = Backbone.Model.extend({
 
 var MessageCollection = Backbone.Collection.extend({
     model: Message,
-    url: 'http://tiny-lasagna-server.herokuapp.com/collections/messages',
+    url: 'https://tiny-lasagna-server.herokuapp.com/collections/messages',
     comparator: 'time'
 });
 

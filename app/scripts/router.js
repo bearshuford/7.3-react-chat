@@ -10,13 +10,8 @@ var User = require('./models/User').User;
 var AppRouter = Backbone.Router.extend({
 
   routes: {
-    '': 'index',
+    '':     'index',
     'chat': 'chat',
-  },
-
-  initialize: function(){
-    this.username = '';
-    this.model = '';
   },
 
   index: function(){
@@ -27,20 +22,18 @@ var AppRouter = Backbone.Router.extend({
   },
 
   chat: function(){
-    if(this.model === '') {
-       this.navigate('', {trigger: true});
-    }
+    if(this.model ) {this.navigate('', {trigger: true});}
 
     var collection = new MessageCollection();
     collection.fetch();
-    setInterval(function(){collection.fetch();}, 20000);
+    setInterval(function(){collection.fetch();}, 15000);
 
     ReactDOM.render(
-      React.createElement(ChatComponent, {collection: collection, model: this.model, router: this}),
+      React.createElement(ChatComponent, {collection: collection, model: this.model}),
       document.getElementById('app')
     );
   }
-  
+
 });
 
 var router = new AppRouter();
