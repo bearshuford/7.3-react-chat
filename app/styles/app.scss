@@ -16,6 +16,16 @@ img {
   max-width: 100%;
 }
 
+html, body{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+.container-fluid{
+     height:100%;
+}
+
 body{
    background-color: #FF851B;
    font-family: 'Open Sans', sans-serif;
@@ -40,33 +50,19 @@ header{
 }
 
 #app{
-   margin: 20px;
+   height: 100%;
    position:relative;
 }
 
 #chat{
-   position:fixed;
-   top: 0;
-   bottom:-5px;
-   left:30px;
-   right: 30px;
-   display:flex;
-   flex-flow: column nowrap;
-   overflow:hidden;
+   height: 100%;
 
-   @media(min-width:768px){
-      left: 100px;
-      right: 100px;
+   #chat-col{
+      display:flex;
+      flex-flow: column nowrap;
+      overflow:hidden;
+      height: 100%;
    }
-   @media(min-width:992px){
-      left: 160px;
-      right: 160px;
-   }
-   @media(min-width:1200px){
-      left: 220px;
-      right: 220px;
-   }
-
 }
 
 #list-pane {
@@ -75,6 +71,10 @@ header{
    flex: 1 0 100px;
    padding-bottom: 1px;
    margin-bottom: 10px;
+}
+
+#message-form {
+
 }
 
 .panel{
@@ -89,6 +89,7 @@ header{
       display:flex;
       flex-flow: row nowrap;
       align-items: center;
+      font-size: 14px;
 
       h4{
          flex: 0 0 100px;
@@ -98,6 +99,7 @@ header{
 
       span{
          flex: 1 0 100px;
+
       }
 
       .badge{

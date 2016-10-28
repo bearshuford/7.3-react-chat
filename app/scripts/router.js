@@ -22,14 +22,12 @@ var AppRouter = Backbone.Router.extend({
   },
 
   chat: function(){
-    if(this.model ) {this.navigate('', {trigger: true});}
+    if(this.model) {this.navigate('', {trigger: true});}
 
-    var collection = new MessageCollection();
-    collection.fetch();
-    setInterval(function(){collection.fetch();}, 15000);
+
 
     ReactDOM.render(
-      React.createElement(ChatComponent, {collection: collection, model: this.model}),
+      React.createElement(ChatComponent, {model: this.model}),
       document.getElementById('app')
     );
   }

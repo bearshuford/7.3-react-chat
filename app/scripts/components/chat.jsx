@@ -55,7 +55,7 @@ var MessageForm = React.createClass({
 
   render: function(){
      return (
-      <form onSubmit={this.handleSubmit}>
+      <form id="message-form" onSubmit={this.handleSubmit}>
         <FormGroup controlId="username-input" bsSize="lg">
           <InputGroup>
              <InputGroup.Button >
@@ -82,18 +82,33 @@ var MessageForm = React.createClass({
 var MessageListing = React.createClass({
   mixins: [Backbone.React.Component.mixin],
 
+
+
   componentWillUpdate: function() {
       var node = ReactDOM.findDOMNode(this);
-      this.shouldScrollBottom = node.scrollTop + node.clientHeight === node.scrollHeight;
+      this.shouldScroll = node.scrollTop + node.clientHeight === node.scrollHeight;
    },
 
    componentDidUpdate: function() {
-      if (this.shouldScrollBottom) {
+      if (this.shouldScroll) {
         var node = ReactDOM.findDOMNode(this);
         node.scrollTop = node.scrollHeight;
-        console.log('scrollTop:',node.scrollTop);
+        console.log('didUpdate–scrollTop:',node.scrollTop);
       }
    },
+
+   componentWillMount: function(){
+      this.shouldScroll = true;
+   },
+
+   componentDidMount: function(){
+      setInterval(function(){this.getCollection().fetch();}.bind(this), 15000);
+      if (this.shouldScroll) {
+        var node = ReactDOM.findDOMNode(this);
+        node.scrollTop = node.scrollHeight;
+        console.log('didMount–scrollTop:',node.scrollTop);
+      }
+ },
 
   render: function(){
     var collection = this.getCollection();
@@ -120,13 +135,26 @@ var MessageListing = React.createClass({
 
 var ChatComponent = React.createClass({
   mixins: [Backbone.React.Component.mixin],
+
+  getDefaultProps: function(){
+     var collection = new MessageCollection();
+     collection.fetch();
+     return {'collection': collection}
+  },
+
   render: function(){
     return (
-      <div id="chat">
-         <HeaderElement size="header-sm"/>
-         <MessageListing/>
-         <MessageForm/>
-      </div>
+      <Row id="chat">
+         <Col id="chat-col"
+           xs={10} xsOffset={1}
+           sm={8}  smOffset={2}
+           md={6}  mdOffset={3}
+         >
+            <HeaderElement size="header-sm"/>
+            <MessageListing/>
+            <MessageForm/>
+         </Col>
+      </Row>
    );
   }
 });
