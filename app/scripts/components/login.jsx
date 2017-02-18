@@ -74,6 +74,9 @@ var LoginComponent = React.createClass({
                <LoginForm router={this.props.router}/>
             </Col>
          </Row>
+         <a className="bear-button" href="http://bear.works">
+           <i className="bear-head"/>
+         </a>
       </div>
       );
    }
