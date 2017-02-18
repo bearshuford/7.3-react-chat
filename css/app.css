@@ -5758,6 +5758,28 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+@font-face {
+  font-family: 'bear';
+  src: url("../fonts/bear.eot?4c0rkx");
+  src: url("../fonts/bear.eot?4c0rkx#iefix") format("embedded-opentype"), url("../fonts/bear.ttf?4c0rkx") format("truetype"), url("../fonts/bear.woff?4c0rkx") format("woff"), url("../fonts/bear.svg?4c0rkx#bear") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+i.bear-head {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'bear' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.bear-head:before {
+  content: "🐻";
+  font-size: 24px; }
+
 *,
 *::before,
 *::after {
@@ -5816,6 +5838,7 @@ header {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100px;
           flex: 1 0 100px;
+  padding-top: 8px;
   padding-bottom: 1px;
   margin-bottom: 10px; }
 
@@ -5837,9 +5860,9 @@ header {
     font-size: 14px; }
     .panel .panel-body h4 {
       -webkit-box-flex: 0;
-          -ms-flex: 0 0 100px;
-              flex: 0 0 100px;
-      margin-right: 30px;
+          -ms-flex: 0 0 80px;
+              flex: 0 0 80px;
+      margin-right: 12px;
       overflow: hidden; }
     .panel .panel-body span {
       -webkit-box-flex: 1;
@@ -5850,5 +5873,23 @@ header {
           -ms-flex: 0 0 auto;
               flex: 0 0 auto;
       margin-left: 10px; }
+
+a.bear-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 29px;
+  right: 25px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+  z-index: 20;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+  outline: none;
+  padding: 0;
+  text-align: center;
+  padding-top: 11px; }
 
 /*# sourceMappingURL=app.css.map */
