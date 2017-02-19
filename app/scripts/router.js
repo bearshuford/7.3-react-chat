@@ -5,7 +5,6 @@ var Backbone = require('backbone');
 var LoginComponent = require('./components/login.jsx').LoginComponent;
 var ChatComponent = require('./components/chat.jsx').ChatComponent;
 var MessageCollection = require('./models/Message').MessageCollection;
-var User = require('./models/User').User;
 
 var AppRouter = Backbone.Router.extend({
 
