@@ -5879,8 +5879,8 @@ a.bear-button {
   position: fixed;
   bottom: 29px;
   right: 25px;
-  width: 56px;
-  height: 56px;
+  width: 56px !important;
+  height: 56px !important;
   border-radius: 50%;
   color: white;
   background-color: black;
